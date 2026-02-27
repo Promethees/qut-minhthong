@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const timelineEntries = [
     {
@@ -66,6 +66,27 @@ const typeColors: Record<string, { bg: string; text: string; border: string; lab
 
 export default function TimelineSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleScroll = () => {
+        if (!scrollRef.current) return;
+        const scrollLeft = scrollRef.current.scrollLeft;
+        const width = scrollRef.current.offsetWidth;
+        const newIndex = Math.round(scrollLeft / width);
+        if (newIndex !== activeIndex) {
+            setActiveIndex(newIndex);
+        }
+    };
+
+    const scrollToItem = (index: number) => {
+        if (!scrollRef.current) return;
+        const width = scrollRef.current.offsetWidth;
+        scrollRef.current.scrollTo({
+            left: index * width,
+            behavior: "smooth"
+        });
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -101,7 +122,7 @@ export default function TimelineSection() {
                 </div>
 
                 {/* Timeline */}
-                <div className="timeline-container">
+                <div className="timeline-container" ref={scrollRef} onScroll={handleScroll}>
                     {/* Vertical line - hidden on mobile via CSS */}
                     <div className="timeline-line" />
 
@@ -187,6 +208,18 @@ export default function TimelineSection() {
                         );
                     })}
                 </div>
+
+                {/* Carousel Dots - only visible on mobile */}
+                <div className="carousel-dots">
+                    {timelineEntries.map((_, i) => (
+                        <button
+                            key={i}
+                            className={`dot ${i === activeIndex ? "active" : ""}`}
+                            onClick={() => scrollToItem(i)}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
 
             {/* Mobile & Component styles */}
@@ -230,6 +263,13 @@ export default function TimelineSection() {
             border: 2px solid var(--bg-secondary);
         }
 
+        .carousel-dots {
+            display: none;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
         @media (max-width: 680px) {
           .timeline-container {
             display: flex;
@@ -253,6 +293,24 @@ export default function TimelineSection() {
           }
           .timeline-card {
             width: 100%;
+          }
+          .carousel-dots {
+            display: flex;
+          }
+          .carousel-dots .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border-subtle);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+          .carousel-dots .dot.active {
+            background: var(--cyan);
+            width: 20px;
+            border-radius: 4px;
           }
         }
       `}</style>
