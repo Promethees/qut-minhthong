@@ -146,7 +146,7 @@ export default function ProjectsSection() {
         );
         sectionRef.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
         return () => observer.disconnect();
-    }, []);
+    }, [activeIdx]);
 
     const active = projects[activeIdx];
 
