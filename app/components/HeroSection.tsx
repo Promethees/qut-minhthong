@@ -161,7 +161,7 @@ export default function HeroSection() {
                         color: "var(--text-primary)",
                     }}
                 >
-                    Tra Quang{" "}
+                    Tra Quang <br />
                     <span className="gradient-text">Minh Thong</span>
                 </h1>
 

@@ -23,13 +23,13 @@ const projects = [
     {
         id: "teleop",
         title: "Teleoperation Robotic Control",
-        subtitle: "Remote Robotic Systems",
+        subtitle: "Remote Robotic Systems · Tee's Research Group, NUS",
         youtubeId: "NCHow2tWpOY",
         tags: ["ROS2", "Python", "C++", "Teleoperation", "Robotics"],
         description:
             "Designed and implemented a teleoperation system for remote robotic control, leveraging ROS2 communication infrastructure for reliable low-latency command transmission. The system enables intuitive human-directed control of robotic actuators over a networked interface.",
         architecture: [
-            { step: "Operator Interface", desc: "Input capture & encoding" },
+            { step: "SenseGlove", desc: "Controlling device" },
             { step: "ROS2 Topic", desc: "Pub / Sub messaging" },
             { step: "Control Node", desc: "Command processing" },
             { step: "Robot Actuators", desc: "Real-time motion" },
@@ -38,20 +38,21 @@ const projects = [
         highlightColor: "#a78bfa",
     },
     {
-        id: "capstone",
-        title: "NUS Final Year Capstone",
-        subtitle: "Integrated Systems Engineering · NUS",
+        id: "dancedance",
+        title: "Dance Dance: Motion Classification",
+        subtitle: "Integrated Systems Engineering Capstone · NUS",
         youtubeId: "_zaFwhzJeaI",
-        tags: ["Embedded Systems", "Signal Processing", "Integration", "Hardware"],
+        tags: ["FPGA", "HLS", "C++", "Keras", "Neural Network", "Embedded Systems"],
         description:
-            "Capstone project integrating hardware and software components into a cohesive engineering system. Demonstrated end-to-end system design skills spanning embedded firmware, real-time signal processing, and user-facing interfaces — the foundation for my current biosensing research.",
+            "Implemented a real-time motion classification system using a Feedforward Neural Network (FNN). Responsible for the model deployment phase, implementing the FNN in C++ High-Level Synthesis (HLS) for an Ultra96 FPGA board. Optimized performance through hardware pipelining and loop unrolling, significantly accelerating inference while minimizing power and memory footprint.",
         architecture: [
-            { step: "Hardware Layer", desc: "Sensor & actuator integration" },
-            { step: "Embedded Firmware", desc: "Real-time control loop" },
-            { step: "Data Pipeline", desc: "Signal acquisition & filtering" },
-            { step: "User Interface", desc: "Visualisation & control" },
+            { step: "Wearable Sensors", desc: "IMU data (Gyro/Accel)" },
+            { step: "ML Engine", desc: "Keras FNN trained on SciPy/NumPy" },
+            { step: "HLS C++ Design", desc: "Pipelining & Loop Unrolling" },
+            { step: "FPGA Deployment", desc: "Ultra96 hardware acceleration" },
+            { step: "Dance styles classification", desc: "A website to display the predictions in real-time" }
         ],
-        highlight: "NUS Capstone",
+        highlight: "Hardware-Accelerated AI",
         highlightColor: "#06b6d4",
     },
     {
