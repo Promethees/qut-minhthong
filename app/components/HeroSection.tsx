@@ -186,7 +186,9 @@ export default function HeroSection() {
                         letterSpacing: "0.01em",
                     }}
                 >
-                    B.Eng Computer Engineering — National University of Singapore (4.47, Honours with Distinction) &nbsp;·&nbsp;
+                    B.Eng Computer Engineering — National University of Singapore (4.47, Honours with Distinction) &nbsp;
+                    <br />
+                    ·&nbsp;
                     Center for Bioscience &amp; Biotechnology, Vietnam
                 </p>
 
