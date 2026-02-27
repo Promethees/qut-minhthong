@@ -101,20 +101,9 @@ export default function TimelineSection() {
                 </div>
 
                 {/* Timeline */}
-                <div style={{ position: "relative" }}>
-                    {/* Vertical line */}
-                    <div
-                        style={{
-                            position: "absolute",
-                            left: "50%",
-                            top: "8px",
-                            bottom: "8px",
-                            width: "2px",
-                            background: "linear-gradient(to bottom, #06b6d4, #7c3aed)",
-                            transform: "translateX(-50%)",
-                            opacity: 0.4,
-                        }}
-                    />
+                <div className="timeline-container">
+                    {/* Vertical line - hidden on mobile via CSS */}
+                    <div className="timeline-line" />
 
                     {timelineEntries.map((entry, i) => {
                         const isLeft = i % 2 === 0;
@@ -122,22 +111,10 @@ export default function TimelineSection() {
                         return (
                             <div
                                 key={i}
-                                className={`reveal reveal-delay-${Math.min(i + 1, 5)}`}
-                                style={{
-                                    display: "flex",
-                                    justifyContent: isLeft ? "flex-start" : "flex-end",
-                                    marginBottom: "48px",
-                                    position: "relative",
-                                }}
+                                className={`timeline-item-wrap reveal reveal-delay-${Math.min(i + 1, 5)} ${isLeft ? "left" : "right"}`}
                             >
                                 {/* Card */}
-                                <div
-                                    className="glass-card"
-                                    style={{
-                                        width: "calc(50% - 36px)",
-                                        padding: "22px 24px",
-                                    }}
-                                >
+                                <div className="glass-card timeline-card">
                                     {/* Type badge */}
                                     <span
                                         style={{
@@ -204,33 +181,78 @@ export default function TimelineSection() {
                                     </p>
                                 </div>
 
-                                {/* Central dot */}
-                                <div
-                                    style={{
-                                        position: "absolute",
-                                        left: "50%",
-                                        top: "28px",
-                                        transform: "translateX(-50%)",
-                                        width: "14px",
-                                        height: "14px",
-                                        borderRadius: "50%",
-                                        background: "linear-gradient(135deg, #06b6d4, #7c3aed)",
-                                        boxShadow: "0 0 12px rgba(6,182,212,0.6)",
-                                        zIndex: 2,
-                                        border: "2px solid var(--bg-secondary)",
-                                    }}
-                                />
+                                {/* Central dot - hidden on mobile via CSS */}
+                                <div className="timeline-dot" />
                             </div>
                         );
                     })}
                 </div>
             </div>
 
-            {/* Mobile styles */}
+            {/* Mobile & Component styles */}
             <style>{`
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, #06b6d4, #7c3aed);
+            transform: translateX(-50%);
+            opacity: 0.4;
+        }
+        .timeline-item-wrap {
+            display: flex;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        .timeline-item-wrap.left { justify-content: flex-start; }
+        .timeline-item-wrap.right { justify-content: flex-end; }
+        
+        .timeline-card {
+            width: calc(50% - 36px);
+            padding: 22px 24px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 28px;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            borderRadius: 50%;
+            background: linear-gradient(135deg, #06b6d4, #7c3aed);
+            boxShadow: 0 0 12px rgba(6,182,212,0.6);
+            z-index: 2;
+            border: 2px solid var(--bg-secondary);
+        }
+
         @media (max-width: 680px) {
-          .timeline-card-wrap {
-            width: 100% !important;
+          .timeline-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0 40px;
+            gap: 20px;
+            scrollbar-width: none; /* Firefox */
+          }
+          .timeline-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+          }
+          .timeline-line, .timeline-dot {
+            display: none;
+          }
+          .timeline-item-wrap {
+            flex-shrink: 0;
+            width: 85vw;
+            margin-bottom: 0;
+            scroll-snap-align: center;
+          }
+          .timeline-card {
+            width: 100%;
           }
         }
       `}</style>

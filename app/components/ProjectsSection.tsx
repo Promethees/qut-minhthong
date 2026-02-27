@@ -81,50 +81,60 @@ function ArchPipeline({ steps }: { steps: { step: string; desc: string }[] }) {
         <div
             style={{
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
-                flexWrap: "wrap",
-                gap: "0",
-                marginTop: "20px",
+                gap: "12px",
+                marginTop: "24px",
             }}
         >
             {steps.map((s, i) => (
                 <div
                     key={i}
-                    style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        width: "100%",
+                        maxWidth: "300px"
+                    }}
                 >
                     <div
                         style={{
-                            padding: "8px 12px",
-                            borderRadius: "8px",
+                            padding: "12px 16px",
+                            borderRadius: "12px",
                             background: "rgba(6,182,212,0.08)",
                             border: "1px solid rgba(6,182,212,0.2)",
                             textAlign: "center",
-                            minWidth: "90px",
+                            width: "100%",
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                         }}
                     >
                         <div
                             style={{
-                                fontSize: "0.7rem",
+                                fontSize: "0.75rem",
                                 fontWeight: 700,
                                 color: "#06b6d4",
-                                marginBottom: "2px",
+                                marginBottom: "4px",
+                                letterSpacing: "0.05em",
+                                textTransform: "uppercase",
                             }}
                         >
                             {s.step}
                         </div>
-                        <div style={{ fontSize: "0.62rem", color: "var(--text-muted)" }}>
+                        <div style={{ fontSize: "0.7rem", color: "var(--text-muted)", lineHeight: 1.4 }}>
                             {s.desc}
                         </div>
                     </div>
                     {i < steps.length - 1 && (
                         <div
                             style={{
-                                color: "var(--text-muted)",
-                                fontSize: "0.9rem",
-                                padding: "0 4px",
+                                color: "#06b6d4",
+                                fontSize: "1.2rem",
+                                padding: "8px 0",
+                                opacity: 0.6,
                             }}
                         >
-                            →
+                            ↓
                         </div>
                     )}
                 </div>
