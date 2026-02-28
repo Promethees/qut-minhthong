@@ -177,13 +177,13 @@ export default function ResearchSection() {
                                             color: "var(--text-primary)",
                                         }}
                                     >
-                                        Proposed PhD at QUT
+                                        Proposed PhD research directions
                                     </div>
-                                    <div
+                                    {/* <div
                                         style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}
                                     >
                                         Under Prof. Soniya Yambem
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 

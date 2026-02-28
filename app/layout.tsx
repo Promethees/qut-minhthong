@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Tra Quang Minh Thong | Research Engineer & PhD Applicant",
   description:
-    "Personal portfolio of Tra Quang Minh Thong — Research Engineer at Center for Bioscience and Biotechnology, NUS Computer Engineering graduate. Applying for PhD at QUT under Prof. Soniya Yambem.",
+    "Personal portfolio of Tra Quang Minh Thong — Research Engineer at Center for Bioscience and Biotechnology, NUS Computer Engineering graduate.",
   openGraph: {
     title: "Tra Quang Minh Thong | Research Engineer & PhD Applicant",
     description:

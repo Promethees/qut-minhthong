@@ -76,9 +76,10 @@ export default function ContactSection() {
                         marginBottom: "40px",
                     }}
                 >
-                    I am actively seeking a PhD position at QUT and would love to discuss
+                    {/* I am actively seeking a PhD position at QUT and would love to discuss
                     potential research directions with Prof. Yambem&apos;s group. Feel free to
-                    reach out via email or connect on LinkedIn.
+                    reach out via email or connect on LinkedIn. */}
+                    I am always open to discussing new research ideas, collaborations, and opportunities. Whether you're a fellow researcher, potential collaborator, or just want to chat about biosensing, robotics, or AI, I'd love to hear from you.
                 </p>
 
                 {/* Social Links */}
@@ -159,7 +160,7 @@ export default function ContactSection() {
                         {" "} · tqmthong@u.nus.edu · +65 8251 5824
                     </p>
                     <p style={{ margin: 0 }}>
-                        © 2026 · Built with Next.js · Presented to Prof. Soniya Yambem, QUT
+                        © 2026 · Tra Quang Minh Thong
                     </p>
                 </div>
             </div>

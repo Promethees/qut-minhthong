@@ -146,7 +146,8 @@ export default function HeroSection() {
             >
                 {/* Eyebrow */}
                 <div className="section-eyebrow" style={{ marginBottom: "20px" }}>
-                    PhD Applicant · QUT · Brisbane, Australia
+                    {/* PhD Applicant · QUT · Brisbane, Australia */}
+                    Introductory slides
                 </div>
 
                 {/* Name */}
