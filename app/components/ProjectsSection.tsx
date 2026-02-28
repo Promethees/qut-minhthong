@@ -78,63 +78,17 @@ const projects = [
 
 function ArchPipeline({ steps }: { steps: { step: string; desc: string }[] }) {
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "12px",
-                marginTop: "24px",
-            }}
-        >
+        <div className="arch-pipeline-container">
             {steps.map((s, i) => (
-                <div
-                    key={i}
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        width: "100%",
-                        maxWidth: "300px"
-                    }}
-                >
-                    <div
-                        style={{
-                            padding: "12px 16px",
-                            borderRadius: "12px",
-                            background: "rgba(6,182,212,0.08)",
-                            border: "1px solid rgba(6,182,212,0.2)",
-                            textAlign: "center",
-                            width: "100%",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                        }}
-                    >
-                        <div
-                            style={{
-                                fontSize: "0.75rem",
-                                fontWeight: 700,
-                                color: "#06b6d4",
-                                marginBottom: "4px",
-                                letterSpacing: "0.05em",
-                                textTransform: "uppercase",
-                            }}
-                        >
-                            {s.step}
-                        </div>
-                        <div style={{ fontSize: "0.7rem", color: "var(--text-muted)", lineHeight: 1.4 }}>
-                            {s.desc}
-                        </div>
+                <div key={i} className="arch-step-wrap">
+                    <div className="arch-step-card">
+                        <div className="arch-step-title">{s.step}</div>
+                        <div className="arch-step-desc">{s.desc}</div>
                     </div>
                     {i < steps.length - 1 && (
-                        <div
-                            style={{
-                                color: "#06b6d4",
-                                fontSize: "1.2rem",
-                                padding: "8px 0",
-                                opacity: 0.6,
-                            }}
-                        >
-                            ↓
+                        <div className="arch-step-separator">
+                            <span className="sep-horizontal">→</span>
+                            <span className="sep-vertical">↓</span>
                         </div>
                     )}
                 </div>
@@ -386,6 +340,69 @@ export default function ProjectsSection() {
             </div>
 
             <style>{`
+        .arch-pipeline-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            marginTop: 24px;
+        }
+        .arch-step-wrap {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .arch-step-card {
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(6,182,212,0.08);
+            border: 1px solid rgba(6,182,212,0.2);
+            text-align: center;
+            min-width: 140px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .arch-step-title {
+            fontSize: 0.75rem;
+            font-weight: 700;
+            color: #06b6d4;
+            margin-bottom: 4px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .arch-step-desc {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        .arch-step-separator {
+            color: #06b6d4;
+            font-size: 1.2rem;
+            padding: 0 8px;
+            opacity: 0.6;
+        }
+        .sep-vertical { display: none; }
+        .sep-horizontal { display: inline; }
+
+        @media (max-width: 900px) {
+            .arch-pipeline-container {
+                flex-direction: column;
+            }
+            .arch-step-wrap {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            .arch-step-card {
+                width: 100%;
+            }
+            .arch-step-separator {
+                padding: 8px 0;
+            }
+            .sep-horizontal { display: none; }
+            .sep-vertical { display: inline; }
+        }
+
         @media (max-width: 700px) {
           .project-grid {
             grid-template-columns: 1fr !important;
