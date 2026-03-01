@@ -212,7 +212,8 @@ export default function ResearchSection() {
                                     marginBottom: "0",
                                 }}
                             >
-                                QUT&apos;s research environment, with its emphasis on
+                                {/* QUT&apos;s  */}
+                                I'm actively looking for a research environment, with an emphasis on
                                 translational biomedical engineering and industry-academia
                                 collaboration, aligns directly with my experience developing
                                 EasyOKAPI at CBB — where I translated fundamental bioscience
