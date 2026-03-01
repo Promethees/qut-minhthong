@@ -17,7 +17,7 @@ const projects = [
             { step: "UART Protocol", desc: "Real-time control messages" },
             { step: "ShadowHand Robot", desc: "Finger actuation" },
         ],
-        highlight: "Covered by Reuters",
+        highlight: "Computer Vision",
         highlightColor: "#34d399",
     },
     {
