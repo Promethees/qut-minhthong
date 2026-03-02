@@ -83,7 +83,7 @@ export default function NavBar() {
 
                 {/* CTA */}
                 <a
-                    href="mailto:tqmthong@u.nus.edu"
+                    href="mailto:tqmthong@gmail.com"
                     className="btn-primary"
                     style={{ fontSize: "0.8rem", padding: "8px 20px" }}
                 >
