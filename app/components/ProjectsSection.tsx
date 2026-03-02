@@ -59,7 +59,7 @@ const projects = [
         id: "easyokapi",
         title: "EasyOKAPI",
         subtitle: "Biosensing Platform · CBB, Vietnam",
-        youtubeId: null, // Coming soon
+        youtubeId: "VvCwaEJMBJw",
         tags: ["CircuitPython", "Flask", "Colorimetric", "Kinetic Modelling", "Point-of-Care"],
         description:
             "End-to-end integrated platform for real-time kinetic analysis of enzyme reactions from a colorimetric point-of-care device. Firmware on Adafruit PyBadge controls optical sensing hardware; a Flask web app performs real-time parameter estimation and visualisation. At $200 hardware cost, the system rivals commercial products valued at $20,000.",
@@ -72,7 +72,7 @@ const projects = [
         ],
         highlight: "$200 vs $20,000 commercial",
         highlightColor: "#f59e0b",
-        comingSoon: true,
+        comingSoon: false,
     },
 ];
 
