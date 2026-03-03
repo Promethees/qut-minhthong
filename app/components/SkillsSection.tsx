@@ -23,7 +23,7 @@ const skillCategories = [
     {
         label: "Embedded & Hardware",
         icon: "🔬",
-        skills: ["CircuitPython", "Adafruit PyBadge", "Colorimetric Sensors", "Optical Hardware"],
+        skills: ["CircuitPython", "Adafruit PyBadge", "Colorimetric Sensors", "Optical Hardware", "FPGA programming"],
         color: "#f59e0b",
     },
     {
